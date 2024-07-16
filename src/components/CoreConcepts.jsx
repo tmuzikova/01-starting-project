@@ -1,9 +1,16 @@
-export const CoreConcept = ({ title, description, image }) => {
+import { CORE_CONCEPTS } from "../Data";
+import { CoreConcept } from "./CoreConcept";
+import { Section } from "./Section";
+
+export const CoreConcepts = () => {
   return (
-    <li>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </li>
+    <Section id="core-concepts">
+      <h2>Core Concepts</h2>
+      <ul>
+        {CORE_CONCEPTS.map((concept) => (
+          <CoreConcept key={concept.title} {...concept} />
+        ))}
+      </ul>
+    </Section>
   );
 };
